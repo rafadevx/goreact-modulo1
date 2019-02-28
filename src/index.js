@@ -12,22 +12,27 @@ class Button extends Component {
     children: PropTypes.string
   }
   render() {
-    return <a href="" onClick={this.props.onClick} >{this.props.children}</a>
+    return <button onClick={this.props.onClick} >{this.props.children}</button>
   }
 }
 
 
 class App extends Component {
 
-  handleClick() {
-    alert('Botao Clicado')
+  state = {
+    counter: 0
+  }
+
+  handleClick = () => {
+    this.setState({ counter: this.state.counter + 1 })
   }
 
   render() {
     return (
       <div>
         <h1>Hello Rafadevx</h1>
-        <Button onClick={this.handleClick}>Enviar</Button>
+        <h2>{this.state.counter}</h2>
+        <Button onClick={this.handleClick}>Somar</Button>
       </div>
     )
   }
